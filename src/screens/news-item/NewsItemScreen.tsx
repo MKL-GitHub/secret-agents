@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import newsItemActions from '../../services/store/newsItem/actions';
 import {RouteProp} from '@react-navigation/native';
@@ -25,7 +25,7 @@ const NewsItemScreen: FC<NewsItemScreenProps> = ({route}) => {
 
   useEffect(() => {
     id && dispatch(newsItemActions.load(id));
-  }, []);
+  }, [dispatch, id]);
 
   const newsItem = useSelector(newsItemSelector);
 

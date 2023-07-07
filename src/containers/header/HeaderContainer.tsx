@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React, {FC} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {getUser} from '../../services/store/profile/selectors';
 import {User} from '../../services/store/profile/types';

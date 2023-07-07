@@ -1,6 +1,6 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { getAuthParams } from ".";
-import { AUTH_PARAMS } from "../../storageKeys";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {getAuthParams} from '.';
+import {AUTH_PARAMS} from '../../storageKeys';
 
 describe('getAuthParams', () => {
   it('должен вернуть null, если параметры небыли сохранены в AsyncStorage', async () => {
@@ -10,7 +10,7 @@ describe('getAuthParams', () => {
   });
 
   it('должен вернуть параметры авторизации из AsyncStorage', async () => {
-    const params = { email: 'some@mail.ru', password: '1234' };
+    const params = {email: 'some@mail.ru', password: '1234'};
 
     await AsyncStorage.setItem(AUTH_PARAMS, JSON.stringify(params));
     const authParams = await getAuthParams();

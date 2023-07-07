@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import React, {FC, useState} from 'react';
 import {View, Text} from 'react-native';
 import styles from './AuthScreen.styles';
 import Button from '../../components/ui/button/Button';

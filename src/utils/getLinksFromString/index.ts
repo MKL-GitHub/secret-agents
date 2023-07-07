@@ -1,4 +1,4 @@
-import { LinkedTextType } from "../../types";
+import {LinkedTextType} from '../../types';
 
 /**
  * Получение списка объектов с текстом и ссылкой
@@ -19,16 +19,16 @@ export function getLinksFromString(str: string): LinkedTextType[] {
 
     if (startIndex > lastIndex) {
       const text = line.substring(lastIndex, startIndex);
-      text.trim() && matches.push({ text, url: null });
+      text.trim() && matches.push({text, url: null});
     }
 
-    matches.push({ text: text.trim(), url });
+    matches.push({text: text.trim(), url});
 
     lastIndex = endIndex;
   }
 
   if (lastIndex < line.length) {
-    matches.push({ text: line.substring(lastIndex), url: null });
+    matches.push({text: line.substring(lastIndex), url: null});
   }
 
   return matches;

@@ -4,8 +4,6 @@ import styles from './EmailInput.styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import validateEmail from '../../../utils/validateEmail';
 
-export type InputType = 'text' | 'email';
-
 export interface EmailInputProps {
   value: string;
   onChangeText: (text: string) => void;

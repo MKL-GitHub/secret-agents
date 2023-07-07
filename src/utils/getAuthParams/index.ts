@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AUTH_PARAMS } from '../../storageKeys';
-import { AuthParams } from '../../types';
+import {AUTH_PARAMS} from '../../storageKeys';
+import {AuthParams} from '../../types';
 
 /**
  * Получение параметров для авторизации из AsyncStorage
@@ -9,10 +9,12 @@ import { AuthParams } from '../../types';
 export async function getAuthParams(): Promise<AuthParams | null> {
   try {
     const params = await AsyncStorage.getItem(AUTH_PARAMS);
-    if (!params) return null;
+    if (!params) {
+      return null;
+    }
     return JSON.parse(params);
   } catch (error) {
     console.error(error);
     return null;
   }
-};
+}

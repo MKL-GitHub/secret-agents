@@ -1,6 +1,6 @@
-import { User } from "./types";
-import { createSelector } from "reselect";
-import { AppState } from "../types";
+import {User} from './types';
+import {createSelector} from 'reselect';
+import {AppState} from '../types';
 
 const selectUser = (state: AppState): User => ({
   avatarUrl: state.profile.data.user?.avatarUrl,
@@ -14,7 +14,10 @@ const selectIsAuthIsLoading = (state: AppState) => ({
 
 export const getUser = createSelector([selectUser], user => user);
 
-export const getIsAuthIsLoading = createSelector([selectIsAuthIsLoading], state => ({
-  isAuth: state.isAuth,
-  isLoading: state.isLoading,
-}));
+export const getIsAuthIsLoading = createSelector(
+  [selectIsAuthIsLoading],
+  state => ({
+    isAuth: state.isAuth,
+    isLoading: state.isLoading,
+  }),
+);

@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import React, {FC, memo} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AuthScreen from '../../screens/auth/AuthScreen';
 import HomeScreen from '../../screens/home/HomeScreen';

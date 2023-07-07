@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import React, {FC, memo} from 'react';
 import {View, ScrollView, Text, Linking} from 'react-native';
 import styles from './NewsItemDetails.styles';
 import Image from '../ui/image/Image';

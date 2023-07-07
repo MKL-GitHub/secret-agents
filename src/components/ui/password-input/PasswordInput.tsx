@@ -3,8 +3,6 @@ import {View, TextInput, TouchableOpacity} from 'react-native';
 import styles from './PasswordInput.styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export type InputType = 'text' | 'email';
-
 export interface PasswordInputProps {
   value: string;
   onChangeText: (text: string) => void;
@@ -22,7 +20,7 @@ const PasswordInput: FC<PasswordInputProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [isSecureTextEntry, setIsSecureTextEntry] = useState<boolean>(true);
-  const [eyeId, setEyeId] = useState<any>(null);
+  const [, setEyeId] = useState<any>(null);
 
   const onBlur = () => {
     setIsValid(value !== '');

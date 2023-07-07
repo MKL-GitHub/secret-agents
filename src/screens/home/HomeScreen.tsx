@@ -1,4 +1,4 @@
-import {FC, useEffect} from 'react';
+import React, {FC, useEffect} from 'react';
 import {FlatList} from 'react-native';
 import NewsItem from '../../components/news-item/NewsItem';
 import {NewsItemType} from '../../services/store/newsList/types';
@@ -16,7 +16,7 @@ const HomeScreen: FC<HomeScreenProps> = ({navigation}) => {
 
   useEffect(() => {
     dispatch(newsListActions.load({page: 1}));
-  }, []);
+  }, [dispatch]);
 
   const newsList = useSelector(newsListSelector);
 

@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import AppNavigator from './navigation/app-navigator/AppNavigator';
 import profileActions from './services/store/profile/actions';
@@ -21,7 +21,7 @@ const Main: FC = () => {
     };
 
     load();
-  }, []);
+  }, [dispatch]);
 
   return (
     <Loading isLoading={isLoadingParams || select.isLoading}>

@@ -1,4 +1,4 @@
-import {FC, createContext} from 'react';
+import React, {FC, createContext} from 'react';
 import {Provider} from 'react-redux';
 import Services from './src/services';
 import {config} from './src/services/config';

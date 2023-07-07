@@ -1,4 +1,4 @@
-import validateEmail from ".";
+import validateEmail from '.';
 
 describe('validateEmail function', () => {
   it('возвращает true, если email валидный', () => {
@@ -24,6 +24,6 @@ describe('validateEmail function', () => {
 
     invalidEmails.forEach(email => {
       expect(validateEmail(email)).toBe(false);
-    })
-  })
-})
+    });
+  });
+});

@@ -8,8 +8,11 @@ export interface LoadingProps {
   testID?: string;
 }
 
+// @ts-ignore
 const Loading: FC<LoadingProps> = ({isLoading, children, testID}) => {
-  if (!isLoading) return children;
+  if (!isLoading) {
+    return children;
+  }
 
   return (
     <View testID={testID} style={styles.container}>

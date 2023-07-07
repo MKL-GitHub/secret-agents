@@ -8,13 +8,16 @@ export interface ImageProps {
   testID?: string;
 }
 
+// @ts-ignore
 const Image: FC<ImageProps> = ({url, containerStyle, imageStyle, testID}) => {
-  if (!url) return;
-
   const [style, setStyle] = useState<{width: number; height: number}>({
     width: 0,
     height: 0,
   });
+
+  if (!url) {
+    return;
+  }
 
   const onLayout = async (event: LayoutChangeEvent) => {
     const {width: containerWidth} = event.nativeEvent.layout;

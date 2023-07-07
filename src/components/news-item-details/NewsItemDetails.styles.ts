@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import { FONT } from "../../constants/theme";
+import {StyleSheet} from 'react-native';
+import {FONT} from '../../constants/theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   createdAtValue: {
     color: 'black',
-  }
+  },
 });
 
 export default styles;
