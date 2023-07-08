@@ -2,6 +2,7 @@ import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
+
 import HomeScreen from './HomeScreen';
 
 const mockStore = configureStore([]);
@@ -20,17 +21,17 @@ describe('Header container', () => {
               id: '1',
               imageUrl: 'http://test.path',
               shortText: 'short text',
-              title: 'title',
+              title: 'title'
             },
             {
               id: '2',
               imageUrl: 'http://test.path2',
               shortText: 'short text 2',
-              title: 'title 2',
-            },
-          ],
-        },
-      },
+              title: 'title 2'
+            }
+          ]
+        }
+      }
     };
 
     store = mockStore(initialState);
@@ -45,7 +46,7 @@ describe('Header container', () => {
     render(
       <Provider store={store}>
         <HomeScreen />
-      </Provider>,
+      </Provider>
     );
   });
 
@@ -53,7 +54,7 @@ describe('Header container', () => {
     const {getByTestId, getByText} = render(
       <Provider store={store}>
         <HomeScreen />
-      </Provider>,
+      </Provider>
     );
 
     expect(getByTestId('newsList')).toBeTruthy();
@@ -62,10 +63,10 @@ describe('Header container', () => {
   });
 
   it('переходит на страницу новости при клине на нее', () => {
-    const {getByTestId, getByText} = render(
+    const {getByText} = render(
       <Provider store={store}>
         <HomeScreen navigation={mockNavigation} />
-      </Provider>,
+      </Provider>
     );
 
     const newsItem = getByText('title');

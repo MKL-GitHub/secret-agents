@@ -2,6 +2,7 @@ import React from 'react';
 import 'react-native';
 import {it} from '@jest/globals';
 import {fireEvent, render} from '@testing-library/react-native';
+
 import NewsItem from './NewsItem';
 
 describe('NewsItem component', () => {

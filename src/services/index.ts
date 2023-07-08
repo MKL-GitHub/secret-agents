@@ -1,27 +1,26 @@
-import {ConfigType} from './config';
-import createStoreRedux from './store';
 import {ApisauceInstance, create} from 'apisauce';
+import {createContext} from 'react';
+
+import {config, ConfigType} from './config';
 
 /**
  * Сервисы приложения
  */
 class Services {
-  private _store: any;
   private _api: ApisauceInstance | undefined;
 
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   constructor(private config: ConfigType) {}
 
   // Сервис АПИ
   get api(): ApisauceInstance {
     return (this._api ??= create({
-      baseURL: this.config.api.baseURL,
+      baseURL: this.config.api.baseURL
     }));
-  }
-
-  // Сервис Redux store
-  get store(): any {
-    return (this._store ??= createStoreRedux(this, this.config.store));
   }
 }
 
-export default Services;
+const services = new Services(config);
+const ServicesContext = createContext<Services>(services);
+
+export {Services, ServicesContext, services};

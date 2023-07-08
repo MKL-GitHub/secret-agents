@@ -1,13 +1,11 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import newsItemActions from '../../services/store/newsItem/actions';
 import {RouteProp} from '@react-navigation/native';
-import {newsItemSelector} from '../../services/store/newsItem/selectors';
-import Loading from '../../components/loading/Loading';
-import {getLinksFromString} from '../../utils/getLinksFromString';
-import {getFormattedDate} from '../../utils/getFormattedDate';
+
+import {getFormattedDate, getLinksFromString} from '../../utils';
 import {LinkedTextType} from '../../types';
-import NewsItemDetails from '../../components/news-item-details/NewsItemDetails';
+import {Loading, NewsItemDetails} from '../../components';
+import {getNewsItem, loadNewsItem} from '../../store/newsItem';
 
 interface NewsItemScreenRouteParams {
   id: string;
@@ -24,10 +22,11 @@ const NewsItemScreen: FC<NewsItemScreenProps> = ({route}) => {
   const [linkedText, setLinkedText] = useState<LinkedTextType[]>([]);
 
   useEffect(() => {
-    id && dispatch(newsItemActions.load(id));
+    // @ts-ignore
+    id && dispatch(loadNewsItem(id));
   }, [dispatch, id]);
 
-  const newsItem = useSelector(newsItemSelector);
+  const newsItem = useSelector(getNewsItem);
 
   useEffect(() => {
     newsItem.data.body && setLinkedText(getLinksFromString(newsItem.data.body));
@@ -36,9 +35,7 @@ const NewsItemScreen: FC<NewsItemScreenProps> = ({route}) => {
   return (
     <Loading isLoading={newsItem.isLoading}>
       <NewsItemDetails
-        createdAt={
-          newsItem.data.createdAt && getFormattedDate(newsItem.data.createdAt)
-        }
+        createdAt={newsItem.data.createdAt && getFormattedDate(newsItem.data.createdAt)}
         linkedText={linkedText}
         imageAdditionalUrl={newsItem.data.imageAdditionalUrl}
         imageUrl={newsItem.data.imageUrl}

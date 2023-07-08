@@ -2,6 +2,7 @@ import React from 'react';
 import 'react-native';
 import {it} from '@jest/globals';
 import {render} from '@testing-library/react-native';
+
 import Loading from './Loading';
 
 describe('Loading component', () => {

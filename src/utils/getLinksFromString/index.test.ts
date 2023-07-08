@@ -1,4 +1,4 @@
-import {getLinksFromString} from '.';
+import {getLinksFromString} from '../../utils';
 
 describe('getLinksFromString function', () => {
   it('получение списка строк с несколькими ссылками', () => {
@@ -10,30 +10,27 @@ describe('getLinksFromString function', () => {
       {text: 'ссылке', url: 'https://lzone.secret-agents.ru/events/45'},
       {
         text: ' Также, более подробдую информацию можете найти на сайте ',
-        url: null,
+        url: null
       },
       {
         text: 'https://lzone.secret-agents.ru/info',
-        url: 'https://lzone.secret-agents.ru/info',
-      },
+        url: 'https://lzone.secret-agents.ru/info'
+      }
     ]);
   });
 
   it('получение списка строк с url = null', () => {
     const text = 'Просто текст';
 
-    expect(getLinksFromString(text)).toEqual([
-      {text: 'Просто текст', url: null},
-    ]);
+    expect(getLinksFromString(text)).toEqual([{text: 'Просто текст', url: null}]);
   });
 
   it('получение списка ссылок без url = null', () => {
-    const text =
-      '<a href="https://site1">ссылка 1</a> <a href="https://site2">ссылка 2</a>';
+    const text = '<a href="https://site1">ссылка 1</a> <a href="https://site2">ссылка 2</a>';
 
     expect(getLinksFromString(text)).toEqual([
       {text: 'ссылка 1', url: 'https://site1'},
-      {text: 'ссылка 2', url: 'https://site2'},
+      {text: 'ссылка 2', url: 'https://site2'}
     ]);
   });
 
@@ -45,8 +42,8 @@ describe('getLinksFromString function', () => {
       {text: 'Специальное предложение доступно по ', url: null},
       {
         text: 'ссылке',
-        url: 'https://lzone.secret-agents.ru/special_offers/185',
-      },
+        url: 'https://lzone.secret-agents.ru/special_offers/185'
+      }
     ]);
   });
 });

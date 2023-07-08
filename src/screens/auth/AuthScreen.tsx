@@ -1,12 +1,11 @@
 import React, {FC, useState} from 'react';
 import {View, Text} from 'react-native';
+
 import styles from './AuthScreen.styles';
-import Button from '../../components/ui/button/Button';
-import EmailInput from '../../components/ui/email-input/EmailInput';
-import PasswordInput from '../../components/ui/password-input/PasswordInput';
-import validateEmail from '../../utils/validateEmail';
-import {useDispatch} from 'react-redux';
-import profileActions from '../../services/store/profile/actions';
+import {Button, EmailInput, PasswordInput} from '../../components/ui';
+import {validateEmail} from '../../utils';
+import {loadProfile} from '../../store/profile';
+import {useAppDispatch} from '../../store';
 
 const AuthScreen: FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -14,7 +13,7 @@ const AuthScreen: FC = () => {
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onSubmit = async () => {
     const isEmailValid = validateEmail(email as string);
@@ -24,7 +23,8 @@ const AuthScreen: FC = () => {
     setIsPasswordValid(isPasswordValid);
 
     if (isEmailValid && isPasswordValid) {
-      dispatch(profileActions.load({email, password}));
+      // dispatch(profileActions.load({email, password}));
+      dispatch(loadProfile({email, password}));
     }
   };
 
@@ -46,11 +46,7 @@ const AuthScreen: FC = () => {
           isValid={isPasswordValid}
           setIsValid={setIsPasswordValid}
         />
-        <Button
-          text="Отправить"
-          disabled={!isEmailValid || !isPasswordValid}
-          onPress={onSubmit}
-        />
+        <Button text="Отправить" disabled={!isEmailValid || !isPasswordValid} onPress={onSubmit} />
       </View>
     </View>
   );

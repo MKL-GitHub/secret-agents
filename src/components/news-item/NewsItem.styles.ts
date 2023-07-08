@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+
 import {FONT} from '../../constants/theme';
 
 const styles = StyleSheet.create({
@@ -10,23 +11,23 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderColor: '#0003',
     borderRadius: 20,
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
   title: {
     fontFamily: FONT.medium,
     textAlign: 'center',
     fontSize: 24,
-    color: 'black',
+    color: 'black'
   },
   imageContainer: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   shortText: {
     fontFamily: FONT.regular,
     fontSize: 16,
     paddingHorizontal: 15,
-    color: 'black',
-  },
+    color: 'black'
+  }
 });
 
 export default styles;

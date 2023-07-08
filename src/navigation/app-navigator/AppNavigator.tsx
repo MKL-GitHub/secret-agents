@@ -1,9 +1,8 @@
 import React, {FC, memo} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import AuthScreen from '../../screens/auth/AuthScreen';
-import HomeScreen from '../../screens/home/HomeScreen';
-import NewsItemScreen from '../../screens/news-item/NewsItemScreen';
-import HeaderContainer from '../../containers/header/HeaderContainer';
+
+import {HeaderContainer} from '../../containers';
+import {AuthScreen, HomeScreen, NewsItemScreen} from '../../screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,33 +10,27 @@ export interface AppNavigatorProps {
   isAuth: boolean;
 }
 
+interface ScreenOptions {
+  headerRight: () => React.ReactElement;
+  title: string;
+}
+
 const AppNavigator: FC<AppNavigatorProps> = ({isAuth}) => {
-  const commonOptions: any = {
+  const commonOptions: ScreenOptions = {
+    // eslint-disable-next-line react/no-unstable-nested-components
     headerRight: () => <HeaderContainer />,
-    title: '',
+    title: ''
   };
 
   return (
     <Stack.Navigator>
       {isAuth ? (
         <>
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={commonOptions}
-          />
-          <Stack.Screen
-            name="NewsItem"
-            component={NewsItemScreen}
-            options={commonOptions}
-          />
+          <Stack.Screen name="Home" component={HomeScreen} options={commonOptions} />
+          <Stack.Screen name="NewsItem" component={NewsItemScreen} options={commonOptions} />
         </>
       ) : (
-        <Stack.Screen
-          name="Auth"
-          component={AuthScreen}
-          options={{headerShown: false}}
-        />
+        <Stack.Screen name="Auth" component={AuthScreen} options={{headerShown: false}} />
       )}
     </Stack.Navigator>
   );

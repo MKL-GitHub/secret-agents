@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {AUTH_PARAMS} from '../../storageKeys';
+
+import {AUTH_PARAMS} from '../../async-storage';
 import {AuthParams} from '../../types';
 
 /**

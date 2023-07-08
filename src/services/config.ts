@@ -12,6 +12,6 @@ export type ConfigType = {
 export const config: ConfigType = {
   store: {},
   api: {
-    baseURL: 'https://lzone.secret-agents.ru/api/v2',
-  },
+    baseURL: 'https://lzone.secret-agents.ru/api/v2'
+  }
 };

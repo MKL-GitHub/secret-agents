@@ -1,26 +1,19 @@
 import React, {FC} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {getUser} from '../../services/store/profile/selectors';
-import {User} from '../../services/store/profile/types';
-import {AppState} from '../../services/store/types';
-import profileActions from '../../services/store/profile/actions';
-import Header from '../../components/header/Header';
+import {useSelector} from 'react-redux';
+
+import {Header} from '../../components';
+import {useAppDispatch} from '../../store';
+import {getUser, logout, User} from '../../store/profile';
 
 const HeaderContainer: FC = () => {
-  const select: User = useSelector<AppState, User>(getUser);
-  const dispatch = useDispatch();
+  const select: User = useSelector(getUser);
+  const dispatch = useAppDispatch();
 
   const onLogout = () => {
-    dispatch(profileActions.logout());
+    dispatch(logout());
   };
 
-  return (
-    <Header
-      username={select.username}
-      avatarUrl={select.avatarUrl}
-      onLogout={onLogout}
-    />
-  );
+  return <Header username={select.username} avatarUrl={select.avatarUrl} onLogout={onLogout} />;
 };
 
 export default HeaderContainer;

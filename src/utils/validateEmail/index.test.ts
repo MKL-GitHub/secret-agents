@@ -1,14 +1,12 @@
-import validateEmail from '.';
+// import {validateEmail} from '';
+
+import {validateEmail} from '.';
 
 describe('validateEmail function', () => {
   it('возвращает true, если email валидный', () => {
-    const validEmails = [
-      'test@example.com',
-      'john.doe@gmail.com',
-      'info@domain.co',
-    ];
+    const validEmails = ['test@example.com', 'john.doe@gmail.com', 'info@domain.co'];
 
-    validEmails.forEach(email => {
+    validEmails.forEach((email) => {
       expect(validateEmail(email)).toBe(true);
     });
   });
@@ -19,10 +17,10 @@ describe('validateEmail function', () => {
       'test@example',
       'mark.smith@gmail',
       'some_info@yandex',
-      'some_info@yandex.o',
+      'some_info@yandex.o'
     ];
 
-    invalidEmails.forEach(email => {
+    invalidEmails.forEach((email) => {
       expect(validateEmail(email)).toBe(false);
     });
   });

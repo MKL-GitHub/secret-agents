@@ -1,5 +1,6 @@
 import React, {FC, memo} from 'react';
 import {View, ScrollView, Text, Linking} from 'react-native';
+
 import styles from './NewsItemDetails.styles';
 import Image from '../ui/image/Image';
 import {LinkedTextType} from '../../types';
@@ -13,13 +14,10 @@ interface NewsItemDetailProps {
   createdAt?: string;
 }
 
-const NewsItemDetail: FC<NewsItemDetailProps> = props => {
+const NewsItemDetail: FC<NewsItemDetailProps> = (props) => {
   return (
     <ScrollView>
-      <Image
-        url={props.imageAdditionalUrl}
-        containerStyle={styles.imageContainer}
-      />
+      <Image url={props.imageAdditionalUrl} containerStyle={styles.imageContainer} />
       <View style={styles.container}>
         <Text style={styles.title}>{props.title}</Text>
         <Image url={props.imageUrl} containerStyle={styles.imageContainer} />
@@ -27,15 +25,12 @@ const NewsItemDetail: FC<NewsItemDetailProps> = props => {
         <Text style={styles.body}>
           {props.linkedText.map((item: any, index: number) =>
             item.url ? (
-              <Text
-                key={index}
-                style={styles.bodyLink}
-                onPress={() => Linking.openURL(item.url)}>
+              <Text key={index} style={styles.bodyLink} onPress={() => Linking.openURL(item.url)}>
                 {item.text ? item.text : 'ссылке'}
               </Text>
             ) : (
               <Text key={index}>{item.text}</Text>
-            ),
+            )
           )}
         </Text>
 

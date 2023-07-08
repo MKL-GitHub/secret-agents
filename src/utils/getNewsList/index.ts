@@ -1,4 +1,4 @@
-import {NewsItemType} from '../../services/store/newsList/types';
+import {NewsItemType} from '../../store/newsItem';
 
 /**
  * Получение списка новостей с фильтрацией
@@ -6,10 +6,10 @@ import {NewsItemType} from '../../services/store/newsList/types';
  * @returns {NewsItemType[]} Список новостей
  */
 export function getNewsList(items: any[]): NewsItemType[] {
-  return items.map(item => ({
+  return items.map((item) => ({
     id: item.id,
     imageUrl: item.image_url,
     shortText: item.short_text?.replace(/<\/?p>/g, '').trim(),
-    title: item.title,
+    title: item.title
   }));
 }

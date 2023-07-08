@@ -1,4 +1,4 @@
-import {getFormattedDate} from '.';
+import {getFormattedDate} from '../../utils';
 
 describe('getFormattedDate function', () => {
   it('должен вернуть отформатированную дату в виде строки', () => {

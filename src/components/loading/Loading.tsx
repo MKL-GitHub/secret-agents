@@ -1,5 +1,6 @@
 import React, {FC, memo} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
+
 import styles from './Loading.styles';
 
 export interface LoadingProps {

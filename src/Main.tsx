@@ -1,22 +1,23 @@
 import React, {FC, useEffect, useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import AppNavigator from './navigation/app-navigator/AppNavigator';
-import profileActions from './services/store/profile/actions';
-import {getAuthParams} from './utils/getAuthParams';
-import Loading from './components/loading/Loading';
-import {getIsAuthIsLoading} from './services/store/profile/selectors';
+import {useSelector} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
+
+import {AppNavigator} from './navigation';
+import {Loading} from './components';
+import {getIsAuthIsLoading, loadProfile} from './store/profile';
+import {useAppDispatch} from './store';
+import {getAuthParams} from './utils';
 
 const Main: FC = () => {
   const [isLoadingParams, setIsLoadingParams] = useState<boolean>(true);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const select = useSelector(getIsAuthIsLoading);
 
   useEffect(() => {
     const load = async () => {
       const params = await getAuthParams();
-      params && dispatch(profileActions.load(params));
+      params && (await dispatch(loadProfile(params)));
       setIsLoadingParams(false);
     };
 

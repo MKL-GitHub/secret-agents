@@ -18,6 +18,7 @@ export function getLinksFromString(str: string): LinkedTextType[] {
     const endIndex = startIndex + fullMatch.length;
 
     if (startIndex > lastIndex) {
+      // eslint-disable-next-line @typescript-eslint/no-shadow
       const text = line.substring(lastIndex, startIndex);
       text.trim() && matches.push({text, url: null});
     }

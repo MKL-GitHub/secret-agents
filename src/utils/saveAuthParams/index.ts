@@ -1,10 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {AUTH_PARAMS} from '../../storageKeys';
+
 import {AuthParams} from '../../types';
+import {AUTH_PARAMS} from '../../async-storage';
 
 /**
  * Сохранение параметров для авторизации в AsyncStorage
- * @param params Параметры для авторизации
+ * @param {AuthParams} params Параметры для авторизации
  */
 export async function saveAuthParams(params: AuthParams): Promise<void> {
   try {
