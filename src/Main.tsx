@@ -2,11 +2,11 @@ import React, {FC, useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 
-import {AppNavigator} from './navigation';
-import {Loading} from './components';
-import {getIsAuthIsLoading, loadProfile} from './store/profile';
-import {useAppDispatch} from './store';
-import {getAuthParams} from './utils';
+import {AppNavigator} from '@navigation';
+import {Loading} from '@components';
+import {getIsAuthIsLoading, loadProfile} from '@store/profile';
+import {useAppDispatch} from '@store';
+import {getAuthParams} from '@utils';
 
 const Main: FC = () => {
   const [isLoadingParams, setIsLoadingParams] = useState<boolean>(true);

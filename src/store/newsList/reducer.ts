@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-import {NewsListState} from './types';
-import {fetchDataReducer} from '../common/reducers';
+import {fetchDataReducer} from '@store/common/reducers';
+import {NewsListState} from '@store/newsList';
 
 // Начальное состояние
 const initialState: NewsListState = {

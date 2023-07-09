@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-import {ProfileState} from './types';
-import {removeAuthParams} from '../../utils';
+import {removeAuthParams} from '@utils';
+import {ProfileState} from '@store/profile/types';
 
 // Начальное состояние
 const initialState: ProfileState = {

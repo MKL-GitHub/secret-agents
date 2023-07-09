@@ -1,9 +1,9 @@
 import React, {FC, memo} from 'react';
-import {View, ScrollView, Text, Linking} from 'react-native';
+import {ScrollView} from 'react-native';
+import {Link, Image, Text, VStack, View} from 'native-base';
 
-import styles from './NewsItemDetails.styles';
-import Image from '../ui/image/Image';
-import {LinkedTextType} from '../../types';
+import {LinkedTextType} from '@types';
+import {FONT} from '@constants/theme';
 
 interface NewsItemDetailProps {
   imageAdditionalUrl?: string;
@@ -17,32 +17,45 @@ interface NewsItemDetailProps {
 const NewsItemDetail: FC<NewsItemDetailProps> = (props) => {
   return (
     <ScrollView>
-      <Image url={props.imageAdditionalUrl} containerStyle={styles.imageContainer} />
-      <View style={styles.container}>
-        <Text style={styles.title}>{props.title}</Text>
-        <Image url={props.imageUrl} containerStyle={styles.imageContainer} />
+      <Image source={{uri: props.imageAdditionalUrl}} alt="" w="100%" h="100" />
+      <VStack alignItems="center" space="6" p="5">
+        <Text fontSize={24} fontFamily={FONT.medium} textAlign="center">
+          {props.title}
+        </Text>
+        <Image source={{uri: props.imageUrl}} size={300} alt="" />
 
-        <Text style={styles.body}>
+        <View w="full" flexDir="row" alignItems="flex-end">
           {props.linkedText.map((item: any, index: number) =>
             item.url ? (
-              <Text key={index} style={styles.bodyLink} onPress={() => Linking.openURL(item.url)}>
+              <Link
+                key={index}
+                href={item.url}
+                _text={{
+                  color: 'blue.400',
+                  fontFamily: FONT.regular
+                }}
+                mt="2">
                 {item.text ? item.text : 'ссылке'}
-              </Text>
+              </Link>
             ) : (
-              <Text key={index}>{item.text}</Text>
+              <Text key={index} fontFamily={FONT.regular}>
+                {item.text}
+              </Text>
             )
           )}
+        </View>
+
+        <Text w="full" fontFamily={FONT.regular}>
+          {props.shortText}
         </Text>
 
-        <Text style={styles.shortText}>{props.shortText}</Text>
-
         {props.createdAt && (
-          <Text style={styles.createdAt}>
-            <Text>Дата создания: </Text>
-            <Text style={styles.createdAtValue}>{props.createdAt}</Text>
+          <Text w="full" fontFamily={FONT.regular}>
+            <Text color="text.500">Дата создания: </Text>
+            <Text>{props.createdAt}</Text>
           </Text>
         )}
-      </View>
+      </VStack>
     </ScrollView>
   );
 };

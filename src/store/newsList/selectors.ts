@@ -1,7 +1,7 @@
 import {createSelector} from 'reselect';
 
-import {AppState} from '../types';
-import {NewsListState} from './types';
+import {AppState} from '@store/types';
+import {NewsListState} from '@store/newsList';
 
 const selectNewsList = ({newsList}: AppState): NewsListState => newsList;
 

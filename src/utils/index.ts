@@ -4,4 +4,4 @@ export * from './getLinksFromString';
 export * from './getNewsList';
 export * from './removeAuthParams';
 export * from './saveAuthParams';
-export * from './validateEmail';
+export * from './getNativeBaseProvider';

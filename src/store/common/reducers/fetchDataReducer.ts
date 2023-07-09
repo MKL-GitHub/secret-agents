@@ -1,4 +1,4 @@
-import {FetchDataType} from '../../types';
+import {FetchDataType} from '@store/types';
 
 export const fetchDataReducer = {
   loadStart: (state: FetchDataType) => {

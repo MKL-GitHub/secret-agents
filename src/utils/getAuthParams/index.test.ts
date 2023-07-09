@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {getAuthParams} from '../../utils';
-import {AUTH_PARAMS} from '../../async-storage';
+import {getAuthParams} from '.';
+import {AUTH_PARAMS} from '@async-storage';
 
 describe('getAuthParams', () => {
   it('должен вернуть null, если параметры небыли сохранены в AsyncStorage', async () => {

@@ -1,8 +1,8 @@
 import React, {FC, memo} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {HeaderContainer} from '../../containers';
-import {AuthScreen, HomeScreen, NewsItemScreen} from '../../screens';
+import {HeaderContainer} from '@containers';
+import {AuthScreen, HomeScreen, NewsItemScreen} from '@screens';
 
 const Stack = createNativeStackNavigator();
 

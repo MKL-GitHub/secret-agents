@@ -1,9 +1,9 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
-import {loadError, loadStart, loadSuccess} from './reducer';
+import {loadError, loadStart, loadSuccess} from '@store/newsItem';
 
 const loadNewsItem = createAsyncThunk('news-item/load', async (id, {dispatch, extra}) => {
-  dispatch(loadStart);
+  dispatch(loadStart());
 
   try {
     // @ts-ignore
@@ -24,6 +24,8 @@ const loadNewsItem = createAsyncThunk('news-item/load', async (id, {dispatch, ex
           }
         })
       );
+    } else {
+      dispatch(loadError());
     }
   } catch (error) {
     dispatch(loadError());

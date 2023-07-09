@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect';
 
-import {AppState} from '../types';
+import {AppState} from '@store/types';
 
 const selectUser = ({profile}: AppState) => ({
   avatarUrl: profile.data.user?.avatarUrl,

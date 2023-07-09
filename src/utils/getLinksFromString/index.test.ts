@@ -1,4 +1,4 @@
-import {getLinksFromString} from '../../utils';
+import {getLinksFromString} from '.';
 
 describe('getLinksFromString function', () => {
   it('получение списка строк с несколькими ссылками', () => {

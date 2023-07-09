@@ -1,6 +1,6 @@
-import {ProfileState} from './profile';
-import {NewsListState} from './newsList';
-import {NewsItemState} from './newsItem';
+import {ProfileState} from '@store/profile';
+import {NewsListState} from '@store/newsList';
+import {NewsItemState} from '@store/newsItem';
 
 export interface AppState {
   profile: ProfileState;

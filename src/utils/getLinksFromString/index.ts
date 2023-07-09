@@ -1,4 +1,4 @@
-import {LinkedTextType} from '../../types';
+import {LinkedTextType} from '@types';
 
 /**
  * Получение списка объектов с текстом и ссылкой

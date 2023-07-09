@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 
 import HomeScreen from './HomeScreen';
+import {getNativeBaseProvider} from '@utils';
 
 const mockStore = configureStore([]);
 
@@ -44,17 +45,21 @@ describe('Header container', () => {
 
   it('отображает корректно', () => {
     render(
-      <Provider store={store}>
-        <HomeScreen />
-      </Provider>
+      getNativeBaseProvider(
+        <Provider store={store}>
+          <HomeScreen />
+        </Provider>
+      )
     );
   });
 
   it('отображает корректно список новостей', () => {
     const {getByTestId, getByText} = render(
-      <Provider store={store}>
-        <HomeScreen />
-      </Provider>
+      getNativeBaseProvider(
+        <Provider store={store}>
+          <HomeScreen />
+        </Provider>
+      )
     );
 
     expect(getByTestId('newsList')).toBeTruthy();
@@ -64,9 +69,11 @@ describe('Header container', () => {
 
   it('переходит на страницу новости при клине на нее', () => {
     const {getByText} = render(
-      <Provider store={store}>
-        <HomeScreen navigation={mockNavigation} />
-      </Provider>
+      getNativeBaseProvider(
+        <Provider store={store}>
+          <HomeScreen navigation={mockNavigation} />
+        </Provider>
+      )
     );
 
     const newsItem = getByText('title');

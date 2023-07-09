@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {removeAuthParams} from '../../utils';
-import {AUTH_PARAMS} from '../../async-storage';
+import {removeAuthParams} from '.';
+import {AUTH_PARAMS} from '@async-storage';
 
 describe('removeAuthParams function', () => {
   it('должен удалить параметры авторизации из AsyncStorage', async () => {

@@ -1,8 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {AuthParams} from '../../types';
+import {AuthParams} from '@types';
 import {saveAuthParams} from '.';
-import {AUTH_PARAMS} from '../../async-storage';
+import {AUTH_PARAMS} from '@async-storage';
 
 describe('saveAuthParams function', () => {
   it('должен сохранить параметры авторизации в AsyncStorage', async () => {

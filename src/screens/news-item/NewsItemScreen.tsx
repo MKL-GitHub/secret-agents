@@ -2,10 +2,10 @@ import React, {FC, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RouteProp} from '@react-navigation/native';
 
-import {getFormattedDate, getLinksFromString} from '../../utils';
-import {LinkedTextType} from '../../types';
-import {Loading, NewsItemDetails} from '../../components';
-import {getNewsItem, loadNewsItem} from '../../store/newsItem';
+import {getFormattedDate, getLinksFromString} from '@utils';
+import {LinkedTextType} from '@types';
+import {Loading, NewsItemDetails} from '@components';
+import {getNewsItem, loadNewsItem} from '@store/newsItem';
 
 interface NewsItemScreenRouteParams {
   id: string;

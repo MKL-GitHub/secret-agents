@@ -1,54 +1,109 @@
+import validator from 'validator';
 import React, {FC, useState} from 'react';
-import {View, Text} from 'react-native';
+import {Input, Button, Text, Stack, Box, Icon, FormControl} from 'native-base';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {TouchableOpacity} from 'react-native';
 
-import styles from './AuthScreen.styles';
-import {Button, EmailInput, PasswordInput} from '../../components/ui';
-import {validateEmail} from '../../utils';
-import {loadProfile} from '../../store/profile';
-import {useAppDispatch} from '../../store';
+import {FONT} from '@constants/theme';
+import {loadProfile} from '@store/profile';
+import {useAppDispatch} from '@store';
 
 const AuthScreen: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [isEmailValid, setIsEmailValid] = useState(true);
-  const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const [isEmailInvalid, setIsEmailInvalid] = useState(false);
+  const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
+  const [isSecureTextEntry, setIsSecureTextEntry] = useState<boolean>(true);
+  const [eyeId, setEyeId] = useState<any>(null);
 
   const dispatch = useAppDispatch();
 
-  const onSubmit = async () => {
-    const isEmailValid = validateEmail(email as string);
-    const isPasswordValid = password !== '';
+  const onBlurEmail = () => {
+    setIsEmailInvalid(!validator.isEmail(email));
+  };
 
-    setIsEmailValid(isEmailValid);
-    setIsPasswordValid(isPasswordValid);
+  const onBlurPassword = () => {
+    setIsPasswordInvalid(password === '');
+  };
 
-    if (isEmailValid && isPasswordValid) {
-      // dispatch(profileActions.load({email, password}));
+  const onChangeEmail = (text: string) => {
+    setIsEmailInvalid(false);
+    setEmail(text);
+  };
+
+  const onChangePassword = (text: string) => {
+    setIsPasswordInvalid(false);
+    setPassword(text);
+  };
+
+  const onEyePress = () => {
+    clearTimeout(eyeId);
+    setIsSecureTextEntry((prev) => !prev);
+    setEyeId(setTimeout(() => setIsSecureTextEntry(true), 4000));
+  };
+
+  const onSubmit = () => {
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    const isEmailInvalid = !validator.isEmail(email);
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    const isPasswordInvalid = password === '';
+
+    setIsEmailInvalid(isEmailInvalid);
+    setIsPasswordInvalid(isPasswordInvalid);
+
+    if (!isEmailInvalid && !isPasswordInvalid) {
       dispatch(loadProfile({email, password}));
     }
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.form}>
-        <Text style={styles.title}>Авторизация</Text>
-        <EmailInput
-          value={email}
-          onChangeText={setEmail}
-          placeholder="Email"
-          isValid={isEmailValid}
-          setIsValid={setIsEmailValid}
-        />
-        <PasswordInput
-          value={password}
-          onChangeText={setPassword}
-          placeholder="Пароль"
-          isValid={isPasswordValid}
-          setIsValid={setIsPasswordValid}
-        />
-        <Button text="Отправить" disabled={!isEmailValid || !isPasswordValid} onPress={onSubmit} />
-      </View>
-    </View>
+    <Box justifyContent="center" p="10%" flex={1}>
+      <Text fontFamily={FONT.medium} fontSize="32" pb="10" textAlign="center">
+        Авторизация
+      </Text>
+
+      <Stack space={5} alignContent={'center'} w="100%" alignItems="center">
+        <FormControl isInvalid={isEmailInvalid}>
+          <Input
+            type="text"
+            fontFamily={FONT.regular}
+            leftElement={<Icon as={<MaterialIcons name="email" />} ml={2} size={5} color="muted.400" />}
+            placeholder="Email"
+            value={email}
+            onChangeText={onChangeEmail}
+            onBlur={onBlurEmail}
+          />
+        </FormControl>
+        <FormControl isInvalid={isPasswordInvalid}>
+          <Input
+            type="password"
+            fontFamily={FONT.regular}
+            leftElement={<Icon as={<MaterialIcons name={'lock'} />} ml={2} size={5} color="muted.400" />}
+            placeholder="Пароль"
+            InputRightElement={
+              <TouchableOpacity onPress={onEyePress}>
+                <Icon
+                  as={<MaterialIcons name={isSecureTextEntry ? 'visibility' : 'visibility-off'} />}
+                  size={5}
+                  mr="3"
+                  color="muted.400"
+                />
+              </TouchableOpacity>
+            }
+            value={password}
+            onChangeText={onChangePassword}
+            onBlur={onBlurPassword}
+            secureTextEntry={isSecureTextEntry}
+          />
+        </FormControl>
+
+        <Button w="100%" onPress={onSubmit}>
+          <Text color="white" fontFamily={FONT.regular}>
+            Отправить
+          </Text>
+        </Button>
+      </Stack>
+    </Box>
   );
 };
 

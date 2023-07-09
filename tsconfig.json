@@ -1,21 +1,50 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "@async-storage": ["async-storage"],
+      "@components": ["components"],
+      "@constants": ["constants"],
+      "@containers": ["containers"],
+      "@navigation": ["navigation"],
+      "@screens": ["screens"],
+      "@services": ["services"],
+      "@store": ["store"],
+      "@types": ["types"],
+      "@utils": ["utils"],
+
+      "@async-storage/*": ["async-storage/*"],
+      "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
+      "@containers/*": ["containers/*"],
+      "@navigation/*": ["navigation/*"],
+      "@screens/*": ["screens/*"],
+      "@services/*": ["services/*"],
+      "@store/*": ["store/*"],
+      "@types/*": ["types/*"],
+      "@utils/*": ["utils/*"]
+    }
+  }
 //  "compilerOptions": {
+//    "moduleResolution": "node",
 //    "baseUrl": "./",
+//    "esModuleInterop": true,
+//    "allowSyntheticDefaultImports": true,
 //    "paths": {
-////      "@*": ["src/*"],
-////      "@src": ["src"],
-////      "@components": ["./src/components"],
-////      "@constants/*": ["src/constants/*"],
-////      "@containers": ["src/containers"],
-////      "@async-storage": ["src/async-storage"],
-////      "@navigation": ["src/navigation"],
-////      "@screens": ["src/screens"],
-////      "@services": ["src/services"],
-////      "@store/*": ["src/store/*"],
-////      "@types": ["src/types"],
-////      "@utils": ["src/utils"],
-////      "@store": ["src/store"]
+//      "*": ["./*"],
+//      "@root/*": ["./*"],
+//      "@src/*": ["src/*"],
+//      "@components/*": ["src/components/*"],
+//      "@containers/*": ["src/containers/*"],
+//      "@async-storage/*": ["src/async-storage/*"],
+//      "@navigation/*": ["src/navigation/*"],
+//      "@screens/*": ["src/screens/*"],
+//      "@services/*": ["src/services/*"],
+//      "@store": ["src/store/"],
+//      "@types/*": ["src/types/*"],
+//      "@utils/*": ["src/utils/*"]
 //    }
 //  },
 }

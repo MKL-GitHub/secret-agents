@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import {useSelector} from 'react-redux';
 
-import {Header} from '../../components';
-import {useAppDispatch} from '../../store';
-import {getUser, logout, User} from '../../store/profile';
+import {useAppDispatch} from '@store';
+import {getUser, logout, User} from '@store/profile';
+import {Header} from '@components';
 
 const HeaderContainer: FC = () => {
   const select: User = useSelector(getUser);

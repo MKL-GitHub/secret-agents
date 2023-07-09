@@ -1,7 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
-import {getNewsList} from '../../utils';
-import {loadError, loadStart, loadSuccess} from './reducer';
+import {getNewsList} from '@utils';
+import {loadError, loadStart, loadSuccess} from '@store/newsList';
 
 const loadNewsList = createAsyncThunk('news-list/load', async (params, {dispatch, extra}) => {
   dispatch(loadStart);

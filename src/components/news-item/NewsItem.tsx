@@ -1,8 +1,7 @@
 import React, {FC, memo} from 'react';
-import {Text, Pressable} from 'react-native';
+import {VStack, Image, Text, Pressable} from 'native-base';
 
-import styles from './NewsItem.styles';
-import Image from '../ui/image/Image';
+import {FONT} from '@constants/theme';
 
 export interface NewsItemProps {
   title?: string;
@@ -13,10 +12,25 @@ export interface NewsItemProps {
 
 const NewsItem: FC<NewsItemProps> = ({title, shortText, imageUrl, onPress}) => {
   return (
-    <Pressable testID="container" style={styles.container} onPress={onPress}>
-      <Text style={styles.title}>{title}</Text>
-      <Image testID="image" url={imageUrl} containerStyle={styles.imageContainer} />
-      <Text style={styles.shortText}>{shortText}</Text>
+    <Pressable
+      onPress={onPress}
+      testID="container"
+      rounded="8"
+      borderColor="coolGray.300"
+      shadow="5"
+      bg="coolGray.100"
+      p="5"
+      mx="5"
+      my="2">
+      <VStack space="5" alignItems="center">
+        <Text fontSize="24" fontFamily={FONT.regular}>
+          {title}
+        </Text>
+        <Image testID="image" source={{uri: imageUrl}} size="300" alt="Картинка" />
+        <Text w="100%" fontSize="16" fontFamily={FONT.regular}>
+          {shortText}
+        </Text>
+      </VStack>
     </Pressable>
   );
 };

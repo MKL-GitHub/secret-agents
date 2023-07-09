@@ -1,8 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
-import {saveAuthParams} from '../../utils';
-import {loadStart, loadSuccess, loadError} from './reducer';
-import {User} from './types';
+import {saveAuthParams} from '@utils';
+import {loadStart, loadSuccess, loadError, User} from '@store/profile';
 
 const loadProfile: any = createAsyncThunk('profile/load', async (params, {dispatch, extra}) => {
   dispatch(loadStart);

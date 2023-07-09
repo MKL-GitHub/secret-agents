@@ -1,4 +1,4 @@
-import {NewsItemType} from '../../store/newsItem';
+import {NewsItemType} from '@store/newsItem';
 
 /**
  * Получение списка новостей с фильтрацией

@@ -7,7 +7,7 @@ export function getFormattedDate(date: Date): string {
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
-    day: 'numeric',
+    day: 'numeric'
   };
   return new Intl.DateTimeFormat('ru-RU', options).format(date);
 }

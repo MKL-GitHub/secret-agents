@@ -1,7 +1,7 @@
 import React, {FC, memo} from 'react';
-import {View, Text, ActivityIndicator} from 'react-native';
+import {Center, Column, Spinner, Text} from 'native-base';
 
-import styles from './Loading.styles';
+import {FONT} from '@constants/theme';
 
 export interface LoadingProps {
   isLoading: boolean;
@@ -16,12 +16,14 @@ const Loading: FC<LoadingProps> = ({isLoading, children, testID}) => {
   }
 
   return (
-    <View testID={testID} style={styles.container}>
-      <View style={styles.frame}>
-        <ActivityIndicator size="large" />
-        <Text style={styles.title}>Загрузка...</Text>
-      </View>
-    </View>
+    <Center testID={testID} flex="1">
+      <Column space="5">
+        <Text fontFamily={FONT.medium} fontSize={24}>
+          Загрузка...
+        </Text>
+        <Spinner size="lg" />
+      </Column>
+    </Center>
   );
 };
 

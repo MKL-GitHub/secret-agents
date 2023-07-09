@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 
 import HeaderContainer from './HeaderContainer';
+import {getNativeBaseProvider} from '@utils';
 
 const mockStore = configureStore([]);
 
@@ -20,9 +21,11 @@ describe('Header container', () => {
 
   it('отображает корректно', () => {
     render(
-      <Provider store={store}>
-        <HeaderContainer />
-      </Provider>
+      getNativeBaseProvider(
+        <Provider store={store}>
+          <HeaderContainer />
+        </Provider>
+      )
     );
   });
 });

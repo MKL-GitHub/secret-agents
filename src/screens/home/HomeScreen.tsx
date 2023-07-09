@@ -2,9 +2,9 @@ import React, {FC, useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useSelector} from 'react-redux';
 
-import {NewsItem, Loading} from '../../components';
-import {useAppDispatch} from '../../store';
-import {getNewsList, loadNewsList} from '../../store/newsList';
+import {NewsItem, Loading} from '@components';
+import {useAppDispatch} from '@store';
+import {getNewsList, loadNewsList} from '@store/newsList';
 
 interface HomeScreenProps {
   navigation?: any;

@@ -1,4 +1,4 @@
-import {getNewsList} from '../../utils';
+import {getNewsList} from '.';
 
 describe('getNewsList function', () => {
   it('получение списка новостей с нужными свойствами', () => {
