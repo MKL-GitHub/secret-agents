@@ -1,7 +1,7 @@
 <h1 align="center">Лента новостей</h1>
 
 <div align="center">
-  <img src="https://github.com/MKL-GitHub/secret-agents/assets/93647476/874b26f9-4c4b-4320-966f-6d1b5d9e193b">
+  <img src="https://github.com/MKL-GitHub/secret-agents/assets/93647476/16ff9103-8a3c-4723-a21c-029cd8fe63d3">
 </div>
 
 <div align="center">
