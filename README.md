@@ -1,3 +1,13 @@
+<h1 align="center">Лента новостей</h1>
+
+<div align="center">
+  <img src="https://github.com/MKL-GitHub/secret-agents/assets/93647476/874b26f9-4c4b-4320-966f-6d1b5d9e193b">
+</div>
+
+<div align="center">
+  <img src="https://github.com/MKL-GitHub/secret-agents/assets/93647476/7c2e8adf-b13c-467d-988f-34f531974c54">
+</div>
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
