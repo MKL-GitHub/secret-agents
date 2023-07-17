@@ -5,7 +5,7 @@
 </div>
 
 <div align="center">
-  <img src="https://github.com/MKL-GitHub/secret-agents/assets/93647476/7c2e8adf-b13c-467d-988f-34f531974c54">
+  <img src="https://github.com/MKL-GitHub/secret-agents/assets/93647476/d0429f5b-ae5c-4fb8-94c1-158405f44e7d">
 </div>
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
